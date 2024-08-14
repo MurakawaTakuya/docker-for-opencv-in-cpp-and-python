@@ -2,7 +2,8 @@
 CONTAINER_NAME=image_processing_with_opencv_container
 
 # Dockerイメージ名
-IMAGE_NAME=image_processing_with_opencv
+IMAGE_NAME=murakawatakuya/opencv-in-cpp-and-python:latest # imageをpullした場合
+# IMAGE_NAME=image_processing_with_opencv # imageをbuildした場合
 
 # C++ソースファイル名
 CPP_FILE=processImage.cpp
@@ -17,6 +18,10 @@ EXECUTABLE=processImage
 IMAGE1=image1.jpg
 IMAGE2=image2.jpg
 OUTPUT_IMAGE=output.jpg
+
+# イメージをプルする
+pull:
+	docker pull $(IMAGE_NAME)
 
 # コンテナを起動する
 run-container:
