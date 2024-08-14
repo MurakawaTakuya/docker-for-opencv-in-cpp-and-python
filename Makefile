@@ -11,13 +11,12 @@ CPP_FILE=processImage.cpp
 # Pythonスクリプトファイル名
 PYTHON_FILE=processImage.py
 
-# 実行ファイル名(バイナリファイル名)
-EXECUTABLE=processImage
-
-# 画像ファイル
-IMAGE1=image1.jpg
-IMAGE2=image2.jpg
-OUTPUT_IMAGE=output.jpg
+# コンテナを停止するコマンド
+ifeq ($(OS),Windows_NT)
+	STOP_CONTAINER = powershell -Command "if (docker ps -q -f name=$(CONTAINER_NAME)) { docker stop $(CONTAINER_NAME) }"
+else
+	STOP_CONTAINER = bash -c 'if [ $$(docker ps -q -f name=$(CONTAINER_NAME)) ]; then docker stop $(CONTAINER_NAME); fi'
+endif
 
 # イメージをプルする
 pull:
@@ -25,6 +24,7 @@ pull:
 
 # コンテナを起動する
 run-container:
+	@$(STOP_CONTAINER) 
 	docker run -dit --rm --name $(CONTAINER_NAME) $(IMAGE_NAME)
 
 # ソースファイルと画像ファイルをコンテナにコピーする（C++用）
