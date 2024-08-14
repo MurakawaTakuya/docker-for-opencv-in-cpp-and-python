@@ -5,7 +5,7 @@
 
 ## 2. Docker HubからImageを取得<br>
 ImageをDocker Hubに公開しているので、<br>
-`make pull`<br>
+`make pull-image`<br>
 でローカルに取得してください。
 
 ## 3. (まだ入れてなければ)Makefileをインストール<br>

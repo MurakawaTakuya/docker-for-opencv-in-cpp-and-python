@@ -9,8 +9,7 @@ int main()
   Mat img1 = imread("image1.jpg", IMREAD_GRAYSCALE);
   Mat img2 = imread("image2.jpg", IMREAD_GRAYSCALE);
 
-  if (img1.empty() || img2.empty())
-  {
+  if (img1.empty() || img2.empty()){
     cerr << "Cannot read image file." << endl;
     return -1;
   }
