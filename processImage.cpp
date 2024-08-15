@@ -20,7 +20,7 @@ int main()
 
   // 差分画像を閾値処理 (見やすくするため)
   Mat thresh;
-  threshold(diff, thresh, 30, 255, THRESH_BINARY);
+  threshold(diff, thresh, 10, 255, THRESH_BINARY);
 
   // 差分画像を保存
   imwrite("output.jpg", thresh);

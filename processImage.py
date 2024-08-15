@@ -12,7 +12,7 @@ if img1 is None or img2 is None:
 diff = cv2.absdiff(img1, img2)
 
 # 差分画像を閾値処理 (見やすくするため)
-_, thresh = cv2.threshold(diff, 30, 255, cv2.THRESH_BINARY)
+_, thresh = cv2.threshold(diff, 10, 255, cv2.THRESH_BINARY)
 
 # 差分画像を保存
 cv2.imwrite('output.jpg', thresh)
