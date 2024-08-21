@@ -1,8 +1,17 @@
 import os
 import cv2
+import sys
 
-img1 = cv2.imread('image1.jpg', cv2.IMREAD_GRAYSCALE)
-img2 = cv2.imread('image2.jpg', cv2.IMREAD_GRAYSCALE)
+if len(sys.argv) != 4:
+  print(f"Usage: {sys.argv[0]} <input_image1> <input_image2> <output_image>")
+  exit()
+
+image1_path = sys.argv[1]
+image2_path = sys.argv[2]
+output_path = sys.argv[3]
+
+img1 = cv2.imread(image1_path, cv2.IMREAD_GRAYSCALE)
+img2 = cv2.imread(image2_path, cv2.IMREAD_GRAYSCALE)
 
 if img1 is None or img2 is None:
   print("Cannot read image file.")
@@ -22,6 +31,6 @@ diff = cv2.absdiff(img1, img2)
 _, thresh = cv2.threshold(diff, 10, 255, cv2.THRESH_BINARY)
 
 # 差分画像を保存
-cv2.imwrite('output.jpg', thresh)
+cv2.imwrite(output_path, thresh)
 
-print("Image processing is successfully done. Output image is saved as 'output.jpg'.")
+print(f"Image processing is successfully done. Output image is saved as '{output_path}'.")

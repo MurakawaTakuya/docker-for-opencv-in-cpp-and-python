@@ -4,10 +4,17 @@
 using namespace std;
 using namespace cv;
 
-int main()
+int main(int argc, char* argv[])
 {
-  Mat img1 = imread("image1.jpg", IMREAD_GRAYSCALE);
-  Mat img2 = imread("image2.jpg", IMREAD_GRAYSCALE);
+  if (argc != 4) {
+    cerr << "Usage: " << argv[0] << " <input_image1> <input_image2> <output_image>" << endl;
+    return -1;
+  }
+  
+  string image1_path = argv[1], image2_path = argv[2], output_path = argv[3];
+  
+  Mat img1 = imread(image1_path, IMREAD_GRAYSCALE);
+  Mat img2 = imread(image2_path, IMREAD_GRAYSCALE);
 
   if (img1.empty() || img2.empty()){
     cerr << "Cannot read image file." << endl;
@@ -30,9 +37,9 @@ int main()
   threshold(diff, thresh, 10, 255, THRESH_BINARY);
 
   // 差分画像を保存
-  imwrite("output.jpg", thresh);
+  imwrite(output_path, thresh);
 
-  cout << "Image processing is successfully done. Output image is saved as 'output.jpg'." << endl;
+  cout << "Image processing is successfully done. Output image is saved as '" << output_path << "'." << endl;
 
   return 0;
 }
