@@ -14,6 +14,13 @@ int main()
     return -1;
   }
 
+  // ファイルの縦横の画素数が異なる場合の処理
+  // if (img1.size() != img2.size()) {
+  //   cerr << "Error: The sizes of the two images do not match." << endl;
+  //   return -1;
+  // }
+  resize(img2, img2, img1.size());
+
   // 差分画像を計算
   Mat diff;
   absdiff(img1, img2, diff);

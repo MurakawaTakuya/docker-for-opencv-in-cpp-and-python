@@ -8,6 +8,13 @@ if img1 is None or img2 is None:
   print("Cannot read image file.")
   exit()
 
+# ファイルの縦横の画素数が異なる場合の処理
+# if img1.shape != img2.shape:
+#     print("Error: The sizes of the two images do not match.")
+#     exit()
+if img1.shape != img2.shape:
+  img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
+
 # 差分画像を計算
 diff = cv2.absdiff(img1, img2)
 

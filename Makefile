@@ -30,7 +30,7 @@ pull-image:
 # コンテナを起動する(前回エラーでコンテナが停止していない場合に再起動する)
 run-container:
 	@echo. && echo Running the container...
-	@$(STOP_CONTAINER) 
+	@$(STOP_CONTAINER)
 	docker run -dit --rm --name $(CONTAINER_NAME) $(IMAGE_NAME)
 	@echo Container started successfully.
 
