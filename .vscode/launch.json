@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/murak/OneDrive/ドキュメント/Programming/image-processing-with-opencv",
-      "program": "c:/Users/murak/OneDrive/ドキュメント/Programming/image-processing-with-opencv/build/Debug/outDebug",
+      "cwd": "c:/Users/murak/OneDrive/ドキュメント/Programming/docker-for-opencv-in-cpp-and-python",
+      "program": "c:/Users/murak/OneDrive/ドキュメント/Programming/docker-for-opencv-in-cpp-and-python/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
